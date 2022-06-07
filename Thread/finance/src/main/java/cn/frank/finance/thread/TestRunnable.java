@@ -15,6 +15,10 @@ public class TestRunnable implements Runnable {
 
         TestRunnable testRunnable = new TestRunnable();
 
+        //使用Lambda表达式来实现Runnable
+        Runnable runnable = () -> System.out.println("Lambda");
+        runnable.run();
+
         //创建线程对象通过线程对象来开启我们的线程代理
         new Thread(testRunnable).start();
 
