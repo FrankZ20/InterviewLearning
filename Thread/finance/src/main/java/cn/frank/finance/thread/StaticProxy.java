@@ -61,3 +61,22 @@ class WeddingCompany implements Marry {
         System.out.println("婚礼之后交尾款");
     }
 }
+
+abstract class Abstract {
+
+    private String name;
+
+    public abstract void marry();
+
+    public void before() {
+        System.out.println("婚礼之前准备酒席");
+    }
+}
+
+class B extends Abstract {
+
+    @Override
+    public void marry() {
+        System.out.println("Married");
+    }
+}
