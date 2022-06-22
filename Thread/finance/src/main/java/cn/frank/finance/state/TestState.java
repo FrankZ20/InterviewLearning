@@ -1,6 +1,8 @@
 package cn.frank.finance.state;
 
-import java.lang.Thread;
+
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * @author zhangfan
@@ -31,7 +33,7 @@ public class TestState {
         state = localThread.getState();
         System.out.println(state);//runnable
 
-        while(state != Thread.State.TERMINATED) {
+        while (state != Thread.State.TERMINATED) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -40,5 +42,15 @@ public class TestState {
             state = localThread.getState();
             System.out.println(state);
         }
+
+        //玩花的
+        System.out.println("--------------------------");
+        System.out.println(Thread.currentThread().getState());
+        Stream.of("a", "b", "c").forEach(n -> new Thread(n) {
+            @Override
+            public void run() {
+                System.out.println(getName());
+            }
+        }.start());
     }
 }

@@ -1,5 +1,7 @@
 package cn.frank.finance.test;
 
+import java.util.*;
+
 /**
  * @author 87507
  * @Description TODO
@@ -27,6 +29,25 @@ public class Test {
         String b = new String("a");
         //false
         System.out.println(a == b);
+
+
+        Map<String, Object> map = new HashMap<>(1);
+        map.put(null, null);
+
+        System.out.println(map.get(null));
+
+        List<String> list = new ArrayList<>();
+        list.add(null);
+        System.out.println(list.get(0));
+
+        Set<String> set = new HashSet<>();
+        set.add(null);
+        System.out.println(set.iterator().next());
+
+        set = new TreeSet<>();
+        set.add(null);
+        System.out.println(set.iterator().next());
+
 
     }
 }
