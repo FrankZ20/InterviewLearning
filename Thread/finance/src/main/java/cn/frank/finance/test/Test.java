@@ -30,6 +30,12 @@ public class Test {
         //false
         System.out.println(a == b);
 
+        //不使用其他变量进行两个数的交换
+        i = i2 - i;
+        i2 = i2 - i;
+        i = i + i2;
+
+        System.out.println(i + "," + i2);
 
         Map<String, Object> map = new HashMap<>(1);
         map.put(null, null);
