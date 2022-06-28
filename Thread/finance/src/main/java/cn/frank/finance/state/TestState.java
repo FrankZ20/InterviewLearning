@@ -35,7 +35,7 @@ public class TestState {
 
         while (state != Thread.State.TERMINATED) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(100);//TIMED_WAITING
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
