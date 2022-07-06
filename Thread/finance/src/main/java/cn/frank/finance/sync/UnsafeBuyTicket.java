@@ -33,7 +33,27 @@ class BuyTicket implements Runnable {
         }
     }
 
-    private void buy() {
+    //线程不安全的
+//    private void buy() {
+//
+//        if (ticket <= 0) {
+//
+//            System.out.println("没票了");
+//            flag = false;
+//            return;
+//        }
+//        //模拟延时
+//        try {
+//            Thread.sleep(100);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        //买票
+//        System.out.println(Thread.currentThread().getName() + "拿到" + ticket--);
+//    }
+
+    //同步方法，锁的是this
+    private synchronized void buy() {
 
         if (ticket <= 0) {
 

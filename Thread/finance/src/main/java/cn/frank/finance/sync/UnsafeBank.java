@@ -16,11 +16,15 @@ public class UnsafeBank {
 
         Account account = new Account(100, "结婚基金");
 
-        Drawing you = new Drawing(account, 50, "你");
-        Drawing gf = new Drawing(account, 100, "女朋友");
+        synchronized (account) {
 
-        you.start();
-        gf.start();
+            Drawing you = new Drawing(account, 50, "你");
+            Drawing gf = new Drawing(account, 100, "女朋友");
+
+            you.start();
+            gf.start();
+        }
+
     }
 }
 @Data
