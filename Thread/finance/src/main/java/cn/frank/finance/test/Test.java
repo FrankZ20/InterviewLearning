@@ -70,6 +70,8 @@ public class Test{
     }
 }
 class ThreadTest extends Thread {
+
+    @Override
     public void run() {
         System.out.println("In run");
         yield();
