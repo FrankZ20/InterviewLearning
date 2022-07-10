@@ -2,6 +2,7 @@ package cn.frank.finance.sync;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author 87507
@@ -17,10 +18,16 @@ public class UnsafeList {
 
         for (int i = 0; i < 10000; i++) {
 
-            new Thread(() -> list.add(Thread.currentThread().getName())).start();
+            new Thread(() -> {
+
+                synchronized (list) {
+                    list.add(Thread.currentThread().getName());
+                }
+            }).start();
         }
 
-        Thread.sleep(3000);
+        //如果不加sleep主线程会提前跑完，导致list还没add完就输出了
+        TimeUnit.SECONDS.sleep(1);
 
         System.out.println(list.size());
     }

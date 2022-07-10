@@ -55,6 +55,7 @@ class Drawing extends Thread {
     @Override
     public void run() {
 
+        //锁的对象就是增删改的对象
         synchronized (account) {
 
             if (account.getMoney() - drawingMoney < 0) {
