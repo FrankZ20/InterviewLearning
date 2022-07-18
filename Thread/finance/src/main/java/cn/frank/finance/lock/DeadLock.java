@@ -59,39 +59,39 @@ class MakeUp extends Thread {
         }
     }
 
-    private void makeUp() throws InterruptedException {
-
-        switch (choices) {
-
-            case 1:
-                //拿口红
-                synchronized(lipStick) {
-
-                    System.out.println(girlName + "拿口红");
-                    TimeUnit.SECONDS.sleep(1);
-
-                    //拿镜子
-                    synchronized (mirror) {
-                        System.out.println(girlName + "拿到了口红和镜子");
-                    }
-                }
-                break;
-            case 2:
-                //拿镜子
-                synchronized(mirror) {
-
-                    System.out.println(girlName + "拿镜子");
-                    TimeUnit.SECONDS.sleep(1);
-                    //拿镜子
-                    synchronized (lipStick) {
-                        System.out.println(girlName + "拿到了口红和镜子");
-                    }
-                }
-                break;
-            default:
-                break;
-        }
-    }
+//    private void makeUp() throws InterruptedException {
+//
+//        switch (choices) {
+//
+//            case 1:
+//                //拿口红
+//                synchronized(lipStick) {
+//
+//                    System.out.println(girlName + "拿口红");
+//                    TimeUnit.SECONDS.sleep(1);
+//
+//                    //拿镜子
+//                    synchronized (mirror) {
+//                        System.out.println(girlName + "拿到了口红和镜子");
+//                    }
+//                }
+//                break;
+//            case 2:
+//                //拿镜子
+//                synchronized(mirror) {
+//
+//                    System.out.println(girlName + "拿镜子");
+//                    TimeUnit.SECONDS.sleep(1);
+//                    //拿镜子
+//                    synchronized (lipStick) {
+//                        System.out.println(girlName + "拿到了口红和镜子");
+//                    }
+//                }
+//                break;
+//            default:
+//                break;
+//        }
+//    }
     //解决方法
     private void makeUp() throws InterruptedException {
 
