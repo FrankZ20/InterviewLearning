@@ -31,11 +31,13 @@ public class CallableDemo implements Callable<Boolean> {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         CallableDemo callableDemo = new CallableDemo("https://pics6.baidu.com/feed/0dd7912397dda1444d96addf9733a3a80df4864b.jpeg?token=255c2d015b6e1c65db9218b80c9a27fc", "1.jpg");
-
+FutureTask<Boolean> futureTask = new FutureTask<>(callableDemo);
         //创建执行服务
         ExecutorService service = Executors.newFixedThreadPool(1);
         //提交执行
         Future<Boolean> result = service.submit(callableDemo);
+
+        new Thread(futureTask).start();
         //获取结果
         boolean rs1 = result.get();
         //关闭服务
